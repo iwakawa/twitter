@@ -1,0 +1,15 @@
+<div class="container">
+ <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+  <h1><%= notice %></h1>　
+　<h3>ツイート一覧</h3>
+　 <%= link_to "ツイートする",new_exam_path, class: 'btn btn-default' %>
+  <% @exams.each do |exam| %>
+  <div class="row">
+   <h4><strong><%= exam.content %></strong></h4>
+   <%= link_to "編集",edit_exam_path(exam.id), class: 'btn btn-default btn-sm btn-success' %>
+   <%= link_to "削除",exam_path(exam.id), method: :delete, data: {confirm: '本当に削除してもいいですか？' }, class: 'btn btn-default btn-sm btn btn-danger' %>
+  </div>
+<% end %>
+ </div>
+</div>
+

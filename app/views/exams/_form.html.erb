@@ -1,0 +1,19 @@
+<%= form_for(@exam, url: choose_new_or_edit) do |f| %>
+<% if @exam.errors.any? %>
+ <div id="error_explanation">
+  <h2><%= @exam.errors.count %>件のエラーがあります。</h2>
+   
+  <ul>
+  <% @exam.errors.full_messages.each do |msg| %>
+   <li><%= msg %></li>
+  <% end %> 
+  </ul>
+ </div>
+<% end %>
+<%= f.label :内容 %>
+<%= f.text_field :content, class: 'form-controll' %>
+<br>
+<%= f.submit 'ツイート', class: 'btn btn-primary btn-block' %>
+<% end %>
+
+<%= link_to "投稿一覧画面に戻る", exams_path %>
